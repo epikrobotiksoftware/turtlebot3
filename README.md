@@ -21,9 +21,9 @@
 
 - After, Download this package from github in the link under src folder.
 
-    So clone this [here](https://github.com/epikrobotiksoftware/Laser-Relay)
+    So clone this [here](https://github.com/epikrobotiksoftware/turtlebot3.git)
 
-        https://github.com/epikrobotiksoftware/Laser-Relay.git
+        https://github.com/epikrobotiksoftware/turtlebot3.git
 
 - Go your workspace  
 
