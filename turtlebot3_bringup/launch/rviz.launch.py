@@ -12,7 +12,7 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
 
 
-    WS = "/home/"+getpass.getuser()+"/Documents/ros2_ws"
+    WS = "/home/"+getpass.getuser()+"/ros2_ws"
     package_name = "/turtlebot3/turtlebot3_bringup"
     rviz_config = WS+"/src" + package_name + "/rviz/"+rviz2_file_name
 
