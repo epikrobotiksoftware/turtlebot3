@@ -47,8 +47,10 @@
 
 
 ---
-
-
+** NOTE:**
+-  When you control joystick you need to use rosbridge web socket.for connetion web socket run your another terminal.
+                
+                ros2 launch rosbridge_server rosbridge_websocket_launch.xml address:="YOUR_IP_ADRRESS port:=JOYSTICK_PORT_ADDRESS (DEFAULT = 9091)
 ## Contact:
 
 ### [Github: Mehmet KUTAN](https://github.com/MehmetKUTAN)
