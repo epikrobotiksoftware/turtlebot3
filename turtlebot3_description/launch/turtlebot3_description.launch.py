@@ -13,7 +13,7 @@ def generate_launch_description():
     #############################################################
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     urdf_file_name = 'turtlebot3.urdf'
-    topic_name = LaunchConfiguration('topic_name', default='amr_mini/cmd_vel')
+    topic_name = LaunchConfiguration('topic_name', default='/cmd_vel')
     print('urdf_file_name : {}'.format(urdf_file_name))
 
     urdf = os.path.join(
@@ -45,7 +45,7 @@ def generate_launch_description():
                               description='Absolute path to robot urdf file'),
         DeclareLaunchArgument(
             'topic_name',
-            default_value='amr_mini/cmd_vel',
+            default_value='/cmd_vel',
             description='Name of the topic to publish velocity commands'
         ),
         joint_state_publisher,
