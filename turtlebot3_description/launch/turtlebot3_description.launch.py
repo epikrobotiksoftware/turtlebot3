@@ -8,11 +8,12 @@ from launch.actions import DeclareLaunchArgument
 from launch_ros.actions import Node
 from launch.substitutions import LaunchConfiguration
 
+
 def generate_launch_description():
     #############################################################
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     urdf_file_name = 'turtlebot3.urdf'
-
+    topic_name = LaunchConfiguration('topic_name', default='amr_mini/cmd_vel')
     print('urdf_file_name : {}'.format(urdf_file_name))
 
     urdf = os.path.join(
@@ -38,11 +39,15 @@ def generate_launch_description():
                               executable='rqt_robot_steering',
                               name='rqt_robot_steering',
                               output='screen',
-                                parameters=[{'use_sim_time': use_sim_time, 'robot_description': robot_desc}])
-    
+                                parameters=[{'topic': topic_name}])
     return LaunchDescription([
         DeclareLaunchArgument(name='model', default_value=robot_desc,
                               description='Absolute path to robot urdf file'),
+        DeclareLaunchArgument(
+            'topic_name',
+            default_value='amr_mini/cmd_vel',
+            description='Name of the topic to publish velocity commands'
+        ),
         joint_state_publisher,
         robot_state_publisher,
         rqt_robot_steering
