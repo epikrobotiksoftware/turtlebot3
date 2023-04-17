@@ -8,7 +8,7 @@
 ---
 
 **Installation:**
-- Before uploading the project file, we need to source the ros version we are working with to the terminal we are working with.
+- Before uploading the project file, we need to source the ros version we are working with to the terminal.
 
         source /opt/ros/$ROS_DISTRO/setup.bash
 
@@ -43,7 +43,7 @@
 
 - To run the project file 
 
-    ros2 launch turtlebot3_bringup turtlebot3.launch.py 
+        ros2 launch turtlebot3_bringup turtlebot3.launch.py 
 
 
 ---
