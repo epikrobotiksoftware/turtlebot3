@@ -54,7 +54,7 @@ def generate_launch_description():
         gazebo_launch,
         rviz_launch,
         robot_localization_launch,
-        robot_mapping_launch,
-        map_server
+        # robot_mapping_launch,
+        # map_server
     ])
     #############################################################
