@@ -27,9 +27,9 @@ def generate_launch_description():
     )
 
     live_map_node = Node (
-        package='find_v_marker',
-        executable='create_V_marker_server.py',
-        name='create_V_marker_server',
+        package='turtlebot3_mapping',
+        executable='liveMap.py',
+        name='liveMap',
         output='screen',
         parameters=[{'use_sim_time': use_sim_time}],
     )
