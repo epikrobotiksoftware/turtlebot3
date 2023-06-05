@@ -28,9 +28,30 @@ if(BUILD_TESTING)
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
+
+set(action_files
+    "action/DriveGoal.action"
+)
+rosidl_generate_interfaces(${PROJECT_NAME}
+    \${action_files}
+      DEPENDENCIES builtin_interfaces geometry_msgs
+)
+
 install(
-  DIRECTORY launch  rviz
+  DIRECTORY launch  rviz action nav2_simple_commander
   DESTINATION share/${PROJECT_NAME}/
 )
+
+
+install(PROGRAMS
+  action/action_server.py
+  nav2_simple_commander/robot_navigator.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+# find_package(rosidl_default_generators REQUIRED)
+# rosidl_generate_interfaces(${PROJECT_NAME}
+#   actions/DriveGoal.action
+# )
 
 ament_package()
