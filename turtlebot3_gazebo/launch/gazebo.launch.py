@@ -31,7 +31,6 @@ def generate_launch_description():
     
 
     return LaunchDescription([
-
         gzserver,
         gzclient,
     ])
