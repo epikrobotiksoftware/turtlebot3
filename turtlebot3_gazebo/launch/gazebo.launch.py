@@ -28,7 +28,6 @@ def generate_launch_description():
             os.path.join(pkg_gazebo_ros, 'launch', 'gzclient.launch.py')
         ),
     )
-    
 
     return LaunchDescription([
         gzserver,

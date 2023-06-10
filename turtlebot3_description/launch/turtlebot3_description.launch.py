@@ -11,7 +11,7 @@ from launch.substitutions import LaunchConfiguration
 
 def generate_launch_description():
     #############################################################
-    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
+    use_sim_time = LaunchConfiguration('use_sim_time', default=True)
     urdf_file_name = 'turtlebot3.urdf'
     topic_name = LaunchConfiguration('topic_name', default='/cmd_vel')
     print('urdf_file_name : {}'.format(urdf_file_name))
@@ -39,7 +39,8 @@ def generate_launch_description():
                               executable='rqt_robot_steering',
                               name='rqt_robot_steering',
                               output='screen',
-                                parameters=[{'topic': topic_name}])
+                              parameters=[{'topic': topic_name}])
+
     return LaunchDescription([
         DeclareLaunchArgument(name='model', default_value=robot_desc,
                               description='Absolute path to robot urdf file'),

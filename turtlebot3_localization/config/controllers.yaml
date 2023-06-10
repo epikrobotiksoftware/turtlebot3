@@ -1,7 +1,7 @@
 controller_manager:
   ros__parameters:
     update_rate: 30
-    use_sim_time: true
+    use_sim_time: True
 
     diff_controller:
       type: diff_drive_controller/DiffDriveController
@@ -30,20 +30,20 @@ diff_controller:
 
     linear:
       x:
-        has_velocity_limits: true
+        has_velocity_limits: True
         max_velocity: 10.0
         min_velocity: -10.0
 
-        has_acceleration_limits: true
+        has_acceleration_limits: True
         max_acceleration: 1.0
         min_acceleration: -10.
 
     angular:
       z:
-        has_velocity_limits: true
+        has_velocity_limits: True
         max_velocity: 10.0
         min_velocity: -10.0
 
-        has_acceleration_limits: true
+        has_acceleration_limits: True
         max_acceleration: 1.0
         min_acceleration: -1.0

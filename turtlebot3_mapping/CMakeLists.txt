@@ -24,28 +24,16 @@ if(BUILD_TESTING)
 endif()
 
 install(
-<<<<<<< HEAD
-  DIRECTORY launch  maps config script
+
+  DIRECTORY launch   config script
   DESTINATION share/${PROJECT_NAME}/
 )
 
 install(PROGRAMS
 script/liveMap.py
+ src/scan_filtered.py
 DESTINATION lib/${PROJECT_NAME}
 )
 
-=======
-  DIRECTORY launch  maps config src
-  DESTINATION share/${PROJECT_NAME}/
-)
 
-
-
-install(PROGRAMS
- 
-  src/scan_filtered.py
-  DESTINATION lib/${PROJECT_NAME}
-
-)
->>>>>>> 09cf651 (new added: edited Ekf file)
 ament_package()

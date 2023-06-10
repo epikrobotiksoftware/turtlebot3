@@ -6,7 +6,7 @@ from launch.substitutions import LaunchConfiguration
 
 
 def generate_launch_description():
-    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
+    use_sim_time = LaunchConfiguration('use_sim_time', default=True)
     driver_goal_node = Node(
         package='turtlebot3_bringup',
         executable='action_server.py',

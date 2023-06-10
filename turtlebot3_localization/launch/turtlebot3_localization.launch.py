@@ -12,7 +12,7 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
+    use_sim_time = LaunchConfiguration('use_sim_time', default=True)
     ekf_config_file = os.path.join(get_package_share_directory('turtlebot3_localization'),
                                    'config', "ekf.yaml")
     
