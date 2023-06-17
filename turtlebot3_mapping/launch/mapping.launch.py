@@ -26,6 +26,15 @@ def generate_launch_description():
                           'params_file': params_file_dir}.items(),
     )
 
+    slamtoolbox_pose_node = Node (
+        package='turtlebot3_mapping',
+        executable='slamtoolbox_pose.py',
+        name='slamtoolbox_pose',
+        output='screen',
+        parameters=[{'use_sim_time': use_sim_time}],
+    )
+
+
     live_map_node = Node (
         package='turtlebot3_mapping',
         executable='liveMap.py',
@@ -36,5 +45,6 @@ def generate_launch_description():
 
     return LaunchDescription([
         mapping_launch,
-        live_map_node
+        live_map_node,
+        slamtoolbox_pose_node
     ])
