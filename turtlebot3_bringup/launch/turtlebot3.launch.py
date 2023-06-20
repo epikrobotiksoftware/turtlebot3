@@ -44,17 +44,30 @@ def generate_launch_description():
         )
     )
 
+    amcl = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory(
+                'turtlebot3_localization'), 'launch',
+                'amcl.launch.py'),
+        )
+    )
   
     map_server = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             mapping_pkg_dir + '/launch/map_server.launch.py'))
+    
+    filters = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            mapping_pkg_dir + '/launch/filters.launch.py'))
 
     return LaunchDescription([
         amr_mini_description_launch,
         gazebo_launch,
         rviz_launch,
         robot_localization_launch,
-        robot_mapping_launch,
-        # map_server
+        # robot_mapping_launch,       
+        map_server,
+        amcl,
+        # filters
     ])
     #############################################################
