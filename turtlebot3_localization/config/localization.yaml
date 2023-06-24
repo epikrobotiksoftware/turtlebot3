@@ -34,6 +34,6 @@ amcl:
     base_frame_id: base_footprint
     set_initial_pose: True
     initial_pose:
-      x: -1.99999
-      y: -0.4999
+      x: -2.0
+      y: -0.5
       z: 0.0
