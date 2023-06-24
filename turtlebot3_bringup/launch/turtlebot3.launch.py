@@ -27,7 +27,6 @@ def generate_launch_description():
     rviz_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             pkg_dir + '/launch/rviz.launch.py'))
-    
 
     robot_localization_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -51,11 +50,11 @@ def generate_launch_description():
                 'amcl.launch.py'),
         )
     )
-  
+
     map_server = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             mapping_pkg_dir + '/launch/map_server.launch.py'))
-    
+
     filters = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             mapping_pkg_dir + '/launch/filters.launch.py'))
@@ -65,7 +64,7 @@ def generate_launch_description():
         gazebo_launch,
         rviz_launch,
         robot_localization_launch,
-        # robot_mapping_launch,       
+        # robot_mapping_launch,
         map_server,
         amcl,
         # filters

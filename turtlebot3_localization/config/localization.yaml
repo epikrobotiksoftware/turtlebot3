@@ -32,8 +32,8 @@ amcl:
     odom_alpha4: 0.1
     odom_frame_id: odom
     base_frame_id: base_footprint
-    # set_initial_pose: True
-    # initial_pose:
-    #   x: -2.0
-    #   y: 0.5
-    #   z: 0.0
+    set_initial_pose: True
+    initial_pose:
+      x: -1.99999
+      y: -0.4999
+      z: 0.0
