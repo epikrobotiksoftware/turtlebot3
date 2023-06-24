@@ -25,7 +25,7 @@ endif()
 
 install(
 
-  DIRECTORY launch   config script
+  DIRECTORY launch   config script maps
   DESTINATION share/${PROJECT_NAME}/
 )
 

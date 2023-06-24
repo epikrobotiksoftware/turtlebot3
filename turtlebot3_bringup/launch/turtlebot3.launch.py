@@ -27,7 +27,6 @@ def generate_launch_description():
     rviz_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             pkg_dir + '/launch/rviz.launch.py'))
-    
 
     robot_localization_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -44,17 +43,39 @@ def generate_launch_description():
         )
     )
 
+    amcl = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory(
+                'turtlebot3_localization'), 'launch',
+                'amcl.launch.py'),
+        )
+    )
+
+    navigation = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory(
+                'turtlebot3_navigation'), 'launch',
+                'navigation2.launch.py'),
+        )
+    )
   
     map_server = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             mapping_pkg_dir + '/launch/map_server.launch.py'))
 
+    filters = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            mapping_pkg_dir + '/launch/filters.launch.py'))
+
     return LaunchDescription([
+        navigation,
         amr_mini_description_launch,
         gazebo_launch,
         rviz_launch,
         robot_localization_launch,
-        robot_mapping_launch,
-        # map_server
+        # robot_mapping_launch,
+        map_server,
+        amcl,
+        filters
     ])
     #############################################################

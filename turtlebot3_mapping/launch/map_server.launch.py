@@ -10,6 +10,8 @@ def generate_launch_description():
     use_sim_time = os.environ.get('USE_SIM_TIME', True)
     map_yaml_file = os.path.join(get_package_share_directory(
         'turtlebot3_mapping'), 'maps/my_map.yaml')
+    
+    print(map_yaml_file)
 
     map_server_cmd = Node(
         package='nav2_map_server',
