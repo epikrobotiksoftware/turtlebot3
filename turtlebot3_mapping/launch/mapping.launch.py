@@ -43,8 +43,25 @@ def generate_launch_description():
         parameters=[{'use_sim_time': use_sim_time}],
     )
 
+
+    lifecycle_nodes = ['liveMap']
+
+    autostart = True
+
+    start_lifecycle_manager_cmd = Node(
+        package='nav2_lifecycle_manager',
+        executable='lifecycle_manager',
+        name='lifecycle_manager',
+        output='screen',
+        emulate_tty=True,
+        parameters=[{'use_sim_time': use_sim_time},
+                    {'autostart': autostart},
+                    {'bond_timeout':0.0},
+                    {'node_names': lifecycle_nodes}])
+
     return LaunchDescription([
         mapping_launch,
+        slamtoolbox_pose_node,
         live_map_node,
-        slamtoolbox_pose_node
+        start_lifecycle_manager_cmd
     ])
