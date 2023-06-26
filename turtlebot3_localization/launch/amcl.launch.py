@@ -6,12 +6,14 @@ import launch_ros
 from ament_index_python.packages import get_package_share_directory
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
-from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration
 
 def generate_launch_description():
     
     pkg_share = launch_ros.substitutions.FindPackageShare(package='turtlebot3_localization').find('turtlebot3_localization')
+    mapping_pkg_dir = get_package_share_directory("turtlebot3_mapping")
+    map_server = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            mapping_pkg_dir + '/launch/map_server.launch.py'))
     lifecycle_nodes = ['amcl']
     autostart = True
     remappings = [('/tf', 'tf'),
@@ -22,7 +24,7 @@ def generate_launch_description():
         executable='amcl',
         name='amcl',
         output='screen',
-        parameters=[os.path.join(pkg_share, 'config', 'localization.yaml'),{'use_sim_time' : True}],# {'use_sim_time' : use_sim_time}
+        parameters=[os.path.join(pkg_share, 'config', 'localization.yaml'),{'use_sim_time' : True}],
         # remappings=remappings
     )
     
@@ -37,5 +39,6 @@ def generate_launch_description():
     
     return launch.LaunchDescription([
         amcl,
+        map_server,
         start_lifecycle_manager_cmd,
     ])

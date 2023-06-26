@@ -102,7 +102,9 @@ class OccupancyGridSubscriber(LifecycleNode):
 
 def main(args=None):
     rclpy.init(args=args)
+    executor = rclpy.executors.SingleThreadedExecutor()
     node = OccupancyGridSubscriber()
+    executor.add_node(node)
     try:
         rclpy.spin(node)
     except (KeyboardInterrupt):

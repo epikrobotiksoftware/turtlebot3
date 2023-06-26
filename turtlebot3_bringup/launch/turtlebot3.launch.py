@@ -43,7 +43,7 @@ def generate_launch_description():
         )
     )
 
-    amcl = IncludeLaunchDescription(
+    robot_amcl_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory(
                 'turtlebot3_localization'), 'launch',
@@ -51,31 +51,34 @@ def generate_launch_description():
         )
     )
 
-    navigation = IncludeLaunchDescription(
+    robot_navigation_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory(
                 'turtlebot3_navigation'), 'launch',
-                'navigation2.launch.py'),
+                'navigation.launch.py'),
         )
     )
-  
-    map_server = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            mapping_pkg_dir + '/launch/map_server.launch.py'))
-
     filters = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             mapping_pkg_dir + '/launch/filters.launch.py'))
+    
+    TwistMux_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory(
+                'turtlebot3_navigation'), 'launch',
+                'twist_mux.launch.py'),
+        ))
 
     return LaunchDescription([
-        navigation,
+        
         amr_mini_description_launch,
         gazebo_launch,
         rviz_launch,
         robot_localization_launch,
         #robot_mapping_launch,
-        #map_server,
-        #amcl,
+        # robot_amcl_launch,
+        # robot_navigation_launch
+        # TwistMux_launch,
         #filters
     ])
     #############################################################
