@@ -76,9 +76,9 @@ def generate_launch_description():
         rviz_launch,
         robot_localization_launch,
         #robot_mapping_launch,
-        # robot_amcl_launch,
-        # robot_navigation_launch
-        # TwistMux_launch,
+        robot_amcl_launch,
+        #robot_navigation_launch,
+        TwistMux_launch,
         #filters
     ])
     #############################################################

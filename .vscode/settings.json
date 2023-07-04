@@ -1,9 +1,7 @@
 {
     "python.autoComplete.extraPaths": [
-<<<<<<< HEAD
         "/home/mkutan/ros2_ws/install/laser_line_extraction_msgs/local/lib/python3.10/dist-packages",
         "/home/mkutan/ros2_ws/install/amr_interfaces/local/lib/python3.10/dist-packages",
-=======
         "/home/dilan/humble_ws/install/turtlebot3_teleop/lib/python3.10/site-packages",
         "/home/dilan/humble_ws/install/turtlebot3_example/lib/python3.10/site-packages",
         "/home/dilan/humble_ws/install/service_robot_control/local/lib/python3.10/dist-packages",
@@ -13,15 +11,12 @@
         "/home/dilan/humble_ws/install/find_v_marker/local/lib/python3.10/dist-packages",
         "/home/dilan/humble_ws/install/amr_mini_docking/local/lib/python3.10/dist-packages",
         "/home/dilan/humble_ws/install/amr_interfaces/local/lib/python3.10/dist-packages",
->>>>>>> 1d138282679ce7ad887f9069cc88233023e235b9
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
     ],
     "python.analysis.extraPaths": [
-<<<<<<< HEAD
         "/home/mkutan/ros2_ws/install/laser_line_extraction_msgs/local/lib/python3.10/dist-packages",
         "/home/mkutan/ros2_ws/install/amr_interfaces/local/lib/python3.10/dist-packages",
-=======
         "/home/dilan/humble_ws/install/turtlebot3_teleop/lib/python3.10/site-packages",
         "/home/dilan/humble_ws/install/turtlebot3_example/lib/python3.10/site-packages",
         "/home/dilan/humble_ws/install/service_robot_control/local/lib/python3.10/dist-packages",
@@ -31,7 +26,6 @@
         "/home/dilan/humble_ws/install/find_v_marker/local/lib/python3.10/dist-packages",
         "/home/dilan/humble_ws/install/amr_mini_docking/local/lib/python3.10/dist-packages",
         "/home/dilan/humble_ws/install/amr_interfaces/local/lib/python3.10/dist-packages",
->>>>>>> 1d138282679ce7ad887f9069cc88233023e235b9
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
     ]

@@ -10,7 +10,7 @@ def generate_launch_description():
     use_sim_time = os.environ.get('USE_SIM_TIME', True)
 
     twist_mux_params = os.path.join(get_package_share_directory(
-        'amr_mini_navigation'), 'config', 'twist_mux.yaml')
+        'turtlebot3_navigation'), 'config', 'twist_mux.yaml')
     twist_mux = Node(
         package="twist_mux",
         executable="twist_mux",
