@@ -21,16 +21,12 @@ class MyNode(Node):
 
         self.publisher = self.create_publisher(PoseWithCovarianceStamped, '/robot_pose', 10)
         self.last_pose = None
+        self.temp=None
 
   
     def pose_callback(self, msg):
         self.last_pose = msg
-        self.publish_messages()
-    
-
-    def publish_messages(self):
-        timer_period = 1.0  
-        timer = self.create_timer(timer_period, self.publish_pose)
+        self.publish_pose()
         
     def publish_pose(self):
         if self.last_pose is not None:
