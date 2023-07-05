@@ -11,6 +11,7 @@ from ament_index_python.packages import get_package_share_directory
 from tf_transformations import euler_from_quaternion
 import getpass
 
+
 class AmclPoseSubscriber(Node):
     def __init__(self):
         self.amcl_data_x = None
@@ -18,7 +19,7 @@ class AmclPoseSubscriber(Node):
         self.amcl_data_yaw = None
         super().__init__('amcl_pose')
         self.subscription = self.create_subscription(
-            PoseWithCovarianceStamped, 'amcl_pose', self.callback, 10)
+            PoseWithCovarianceStamped, '/amcl_pose', self.callback, 10)
 
     def callback(self, msg):
         self.amcl_data_x = msg.pose.pose.position.x
@@ -33,15 +34,14 @@ class AmclPoseSubscriber(Node):
             "initial_pose_z": 0.0,
             "initial_pose_yaw": self.amcl_data_yaw,
         }
-        # print(pose)
-    
+
         yaml_name = "save_last_pose.yaml"
         WS = os.getenv("WS")
         META_PACKAGE_NAME = os.getenv("META_PACKAGE_NAME")
         ROBOT_NAME = os.getenv("robot_name")
 
         yaml_config = f"{WS}/{META_PACKAGE_NAME}/{ROBOT_NAME}_localization/config/{yaml_name}"
-        print("------------------------------------------------------------------------",yaml_config)
+        # print("------------------------------------------------------------------------", yaml_config)
         with open(yaml_config, "w") as file:
             yaml.dump(pose, file)
             print("saved")
