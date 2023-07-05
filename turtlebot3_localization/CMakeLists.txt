@@ -29,6 +29,7 @@ install(
 
 install(PROGRAMS
   script/save_last_pose.py
+  script/robot_pose.py
   DESTINATION lib/${PROJECT_NAME}
 
 )

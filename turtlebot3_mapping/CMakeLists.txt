@@ -31,7 +31,6 @@ install(
 
 install(PROGRAMS
   script/liveMap.py
-  src/slamtoolbox_pose.py
  src/scan_filtered.py
 DESTINATION lib/${PROJECT_NAME}
 )
