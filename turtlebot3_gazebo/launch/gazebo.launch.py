@@ -9,27 +9,20 @@ from launch_ros.actions import Node
 import yaml
 
 def generate_launch_description():
-    #############################################################
+    
     use_sim_time = os.environ.get('USE_SIM_TIME', True)
     world_file_name = 'my_world.model'
     world = os.path.join(get_package_share_directory(
         'turtlebot3_gazebo'), 'worlds', world_file_name)
     
-    # last_pose_yaml = os.path.join(get_package_share_directory('turtlebot3_localization'),'config/save_last_pose.yaml')
-    WS = os.getenv("WS")
-    META_PACKAGE_NAME = os.getenv("META_PACKAGE_NAME")
-    ROBOT_NAME = os.getenv("robot_name")
-    path = f"{WS}/{META_PACKAGE_NAME}/{ROBOT_NAME}_localization/config/save_last_pose.yaml"
-    with open(path, 'r') as file:
+    last_pose_yaml = os.path.join(get_package_share_directory('turtlebot3_localization'),'config/save_last_pose.yaml')
+    
+    with open(last_pose_yaml, 'r') as file:
         data  = yaml.safe_load(file)
 
     initial_pose_x = data['initial_pose_x']
     initial_pose_y = data['initial_pose_y']
     initial_pose_yaw = data['initial_pose_yaw']
-
-    print(initial_pose_x)
-    print(initial_pose_y)
-    print(initial_pose_yaw)
 
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
 
