@@ -76,8 +76,8 @@ def generate_launch_description():
         gazebo_launch,
         rviz_launch,
         robot_localization_launch,
-        #robot_mapping_launch,
-        robot_amcl_launch,
+        robot_mapping_launch,
+        #robot_amcl_launch,
         TwistMux_launch,
         #filters
     ])
