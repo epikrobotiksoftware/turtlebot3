@@ -24,7 +24,8 @@ def generate_launch_description():
                        'planner_server',
                        'behavior_server',
                        'bt_navigator',
-                       'waypoint_follower']
+                       'waypoint_follower',
+                       'smoother_server']
 
     remappings = [('/tf', '/tf'),
                   ('/tf_static', '/tf_static'),
@@ -125,6 +126,14 @@ def generate_launch_description():
             parameters=[{'use_sim_time': use_sim_time},
                         {'autostart': autostart},
                         {'node_names': lifecycle_nodes}]),
+
+        Node(
+                package='nav2_smoother',
+                executable='smoother_server',
+                name='smoother_server',
+                output='screen',
+                parameters=[configured_params],
+                remappings=remappings),
 
         
     ])
