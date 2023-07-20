@@ -30,7 +30,7 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(
             os.path.join(pkg_gazebo_ros, 'launch', 'gzserver.launch.py')
         ),
-        # launch_arguments={'world': world}.items(),
+        launch_arguments={'world': world}.items(),
     )
 
     gzclient = IncludeLaunchDescription(
@@ -45,7 +45,7 @@ def generate_launch_description():
         arguments=['-entity', 'turtlebot3',
                    '-topic', "/robot_description",
                    '-x', str(initial_pose_x), '-y', str(initial_pose_y), '-z', '0.0',
-                   '-Y','0.0', '-P', '0.0', '-R', '0.0',
+                   '-Y', '0.0', '-P', '0.0', '-R', '0.0',
                    ],
         output= 'screen'
     )

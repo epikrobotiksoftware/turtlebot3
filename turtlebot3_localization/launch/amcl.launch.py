@@ -45,7 +45,7 @@ def generate_launch_description():
             "x": pose_x_value,
             "y": pose_y_value,
             "z": pose_z_value,
-            "yaw": pose_yaw_value
+            "yaw": 0.0
         }
     }
     amcl = Node(
