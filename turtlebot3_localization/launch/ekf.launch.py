@@ -14,12 +14,11 @@ def generate_launch_description():
     ekf_config_file = os.path.join(get_package_share_directory('turtlebot3_localization'),
                                    'config', "ekf.yaml")
 
-    robot_pose_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(get_package_share_directory(
-                'turtlebot3_localization'), 'launch',
-                'robot_pose.launch.py'),
-        )
+    publish_robot_pose_node = Node(
+        package='turtlebot3_localization',
+        executable='publish_robot_pose.py',
+        name='publish_robot_pose',
+        output='screen',
     )
 
     robot_localization_node = Node(
@@ -27,12 +26,10 @@ def generate_launch_description():
         executable='ekf_node',
         name='ekf_filter_node',
         output='screen',
-       parameters=[{'use_sim_time': use_sim_time},ekf_config_file],
-                                 )
-
+        parameters=[{'use_sim_time': use_sim_time}, ekf_config_file],
+    )
 
     return LaunchDescription([
-
         robot_localization_node,
-        robot_pose_launch,
+        publish_robot_pose_node,
     ])

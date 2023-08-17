@@ -32,22 +32,15 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory(
                 'turtlebot3_localization'), 'launch',
-                'turtlebot3_localization.launch.py'),
+                'localization_bringup.launch.py'),
         )
     )
+
     robot_mapping_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory(
                 'turtlebot3_mapping'), 'launch',
                 'mapping.launch.py'),
-        )
-    )
-
-    robot_amcl_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(get_package_share_directory(
-                'turtlebot3_localization'), 'launch',
-                'amcl.launch.py'),
         )
     )
 
@@ -74,10 +67,9 @@ def generate_launch_description():
         robot_navigation_launch,
         amr_mini_description_launch,
         gazebo_launch,
-        rviz_launch,
+        # rviz_launch,
         robot_localization_launch,
         #robot_mapping_launch,
-        robot_amcl_launch,
         TwistMux_launch,
         #filters
     ])

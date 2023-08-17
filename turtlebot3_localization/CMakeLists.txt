@@ -31,7 +31,6 @@ install(PROGRAMS
   script/save_last_pose.py
   script/publish_robot_pose.py
   DESTINATION lib/${PROJECT_NAME}
-
 )
 
 ament_package()
