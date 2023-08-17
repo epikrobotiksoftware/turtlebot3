@@ -23,12 +23,11 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(
             [launch_file_dir, '/online_async_launch.py']),
         launch_arguments={'use_sim_time': 'true',
-                          'params_file': params_file_dir}.items(),
+                          'params_file': params_file_dir,
+                          'autostart': 'false'}.items(),
     )
 
-   
-
-    live_map_node = Node (
+    live_map_node = Node(
         package='turtlebot3_mapping',
         executable='liveMap.py',
         name='liveMap',
@@ -36,10 +35,9 @@ def generate_launch_description():
         parameters=[{'use_sim_time': use_sim_time}],
     )
 
-
     lifecycle_nodes = ['liveMap']
 
-    autostart = True
+    autostart = False
 
     start_lifecycle_manager_cmd = Node(
         package='nav2_lifecycle_manager',
@@ -49,7 +47,7 @@ def generate_launch_description():
         emulate_tty=True,
         parameters=[{'use_sim_time': use_sim_time},
                     {'autostart': autostart},
-                    {'bond_timeout':0.0},
+                    {'bond_timeout': 0.0},
                     {'node_names': lifecycle_nodes}])
 
     return LaunchDescription([

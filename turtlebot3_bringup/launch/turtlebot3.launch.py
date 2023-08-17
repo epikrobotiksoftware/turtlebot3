@@ -67,9 +67,9 @@ def generate_launch_description():
         robot_navigation_launch,
         amr_mini_description_launch,
         gazebo_launch,
-        # rviz_launch,
+        rviz_launch,
         robot_localization_launch,
-        #robot_mapping_launch,
+        robot_mapping_launch,
         TwistMux_launch,
         #filters
     ])
