@@ -44,7 +44,7 @@ class AmclPoseSubscriber(Node):
         # print("------------------------------------------------------------------------", yaml_config)
         with open(yaml_config, "w") as file:
             yaml.dump(pose, file)
-            print("saved")
+            print("amcl saved")
             file.close()
 
 

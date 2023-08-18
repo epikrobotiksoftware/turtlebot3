@@ -11,6 +11,14 @@ def generate_launch_description():
         output='screen',
     )
 
+    publish_robot_pose_node = Node(
+        package='turtlebot3_localization',
+        executable='publish_robot_pose.py',
+        name='publish_robot_pose',
+        output='screen',
+    )
+
     return LaunchDescription([
-        save_last_position_node
+        save_last_position_node,
+        publish_robot_pose_node
     ])

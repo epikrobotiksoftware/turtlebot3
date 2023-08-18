@@ -11,7 +11,7 @@ def generate_launch_description():
 
     pkg_dir = get_package_share_directory('turtlebot3_bringup')
     mapping_pkg_dir = get_package_share_directory("turtlebot3_mapping")
-    amr_mini_description_launch = IncludeLaunchDescription(
+    turtlebot3_description_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory(
                 'turtlebot3_description'), 'launch',
@@ -74,7 +74,7 @@ def generate_launch_description():
     return LaunchDescription([
         
         robot_navigation_launch,
-        amr_mini_description_launch,
+        turtlebot3_description_launch,
         gazebo_launch,
         rviz_launch,
         robot_localization_launch,
