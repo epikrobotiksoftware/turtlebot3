@@ -61,6 +61,15 @@ def generate_launch_description():
                 'turtlebot3_navigation'), 'launch',
                 'twist_mux.launch.py'),
         ))
+    
+
+    save_last_pose_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory(
+                'turtlebot3_localization'), 'launch',
+                'save_last_pose.launch.py'),
+        )
+    )
 
     return LaunchDescription([
         
@@ -71,6 +80,7 @@ def generate_launch_description():
         robot_localization_launch,
         robot_mapping_launch,
         TwistMux_launch,
+        save_last_pose_launch
         #filters
     ])
     #############################################################

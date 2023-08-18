@@ -22,8 +22,8 @@ def generate_launch_description():
     with open(last_pose_yaml, 'r') as file:
         data = yaml.safe_load(file)
 
-    initial_pose_x = -2.0  # data['initial_pose_x']
-    initial_pose_y = -0.5  # data['initial_pose_y']
+    initial_pose_x =  data['initial_pose_x']
+    initial_pose_y =  data['initial_pose_y']
     initial_pose_yaw = data['initial_pose_yaw']
 
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')

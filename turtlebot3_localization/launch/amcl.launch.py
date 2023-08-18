@@ -47,7 +47,7 @@ def generate_launch_description():
         name='amcl',
         output='screen',
         parameters=[os.path.join(pkg_share, 'config', 'localization.yaml'), {
-            'use_sim_time': True}],
+            'use_sim_time': True},extra_params],
         # remappings=remappings
     )
 

@@ -8,7 +8,7 @@ import getpass
 def generate_launch_description():
     WS = "/home/"+getpass.getuser()+"/ros2_ws"
     package_name = "/turtlebot3_mapping_demo/turtlebot3_mapping"
-    map_name = "new_map"
+    map_name = "my_map"
     new_map_path = WS+"/src" + package_name + "/maps/"+map_name
     # Create the map_saver_cli node
     map_saver_cli_node = Node(
