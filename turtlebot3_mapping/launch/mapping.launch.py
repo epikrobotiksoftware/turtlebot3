@@ -12,6 +12,7 @@ from launch.substitutions import LaunchConfiguration
 def generate_launch_description():
 
     use_sim_time = LaunchConfiguration('use_sim_time', default=True)
+    autostart = False
 
     params_file_dir = os.path.join(
         get_package_share_directory('turtlebot3_mapping'), 'config', 'mapper_params_online_async.yaml')
@@ -32,7 +33,7 @@ def generate_launch_description():
         executable='liveMap.py',
         name='liveMap',
         output='screen',
-        parameters=[{'use_sim_time': use_sim_time}],
+        parameters=[{'use_sim_time': use_sim_time},{'autostart': autostart}],
     )
 
     lifecycle_nodes = ['liveMap']
